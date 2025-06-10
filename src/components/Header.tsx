@@ -44,6 +44,8 @@ const Header = () => {
       setSearchSuggestions([]);
       setIsSearchFocused(false);
       setSearchQuery('');
+      // Сразу прокручиваем к началу
+      window.scrollTo(0, 0);
     }
   };
 
@@ -52,14 +54,14 @@ const Header = () => {
     setSearchSuggestions([]);
     setIsSearchFocused(false);
     setSearchQuery('');
+    // Сразу прокручиваем к началу
+    window.scrollTo(0, 0);
   };
 
   const handleNavigation = (path: string) => {
+    // Сначала прокручиваем к началу, затем переходим
+    window.scrollTo(0, 0);
     navigate(path);
-    // Прокрутка к началу страницы
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
   };
 
   return (
@@ -72,7 +74,8 @@ const Header = () => {
             <img 
               src="/lovable-uploads/eb9d886f-9194-4685-9771-c9d36a3f6dc6.png" 
               alt="Aurora Jewelry"
-              className="w-16 h-16 object-contain"
+              className="h-[70px] w-auto object-contain"
+              style={{ maxWidth: '171.38px' }}
             />
           </Link>
 
@@ -173,13 +176,14 @@ const Header = () => {
             {/* Избранное */}
             {user && (
               <Button variant="ghost" size="sm" onClick={() => {
+                window.scrollTo(0, 0);
                 navigate('/profile');
                 setTimeout(() => {
                   const favoritesSection = document.getElementById('favorites');
                   if (favoritesSection) {
                     favoritesSection.scrollIntoView({ behavior: 'smooth' });
                   }
-                }, 100);
+                }, 300);
               }}>
                 <Heart className="h-5 w-5" />
               </Button>

@@ -12,10 +12,13 @@ const Index = () => {
   const navigate = useNavigate();
 
   const handleCatalogClick = () => {
+    window.scrollTo(0, 0);
     navigate('/catalog');
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
+  };
+
+  const handleAboutClick = () => {
+    window.scrollTo(0, 0);
+    navigate('/about');
   };
 
   return (
@@ -94,8 +97,8 @@ const Index = () => {
                 Наши мастера используют только драгоценные металлы высшей пробы и
                 сертифицированные камни для создания украшений исключительного качества.
               </p>
-              <Button asChild>
-                <Link to="/about">Узнать больше</Link>
+              <Button onClick={handleAboutClick}>
+                Узнать больше
               </Button>
             </div>
             <div className="relative">

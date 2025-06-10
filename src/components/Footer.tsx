@@ -6,10 +6,8 @@ const Footer = () => {
   const navigate = useNavigate();
 
   const handleNavigation = (path: string) => {
+    window.scrollTo(0, 0);
     navigate(path);
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
   };
 
   return (
@@ -22,7 +20,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/eb9d886f-9194-4685-9771-c9d36a3f6dc6.png" 
                 alt="Aurora Jewelry"
-                className="w-10 h-10 object-contain"
+                className="h-10 w-auto object-contain"
               />
             </button>
             <p className="text-muted-foreground mb-4">
