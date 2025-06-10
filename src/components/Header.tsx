@@ -68,16 +68,12 @@ const Header = () => {
         {/* Основной хедер */}
         <div className="flex items-center justify-between py-4">
           {/* Логотип */}
-          <Link to="/" className="flex items-center space-x-3" onClick={() => handleNavigation('/')}>
+          <Link to="/" className="flex items-center" onClick={() => handleNavigation('/')}>
             <img 
               src="/lovable-uploads/eb9d886f-9194-4685-9771-c9d36a3f6dc6.png" 
               alt="Aurora Jewelry"
-              className="w-12 h-12 object-contain"
+              className="w-16 h-16 object-contain"
             />
-            <div>
-              <h1 className="text-xl font-bold gold-accent">Aurora Jewelry</h1>
-              <p className="text-xs text-muted-foreground">Ювелирный дом</p>
-            </div>
           </Link>
 
           {/* Поиск и навигация в одной строке */}

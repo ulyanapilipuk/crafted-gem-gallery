@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -24,10 +24,6 @@ const Footer = () => {
                 alt="Aurora Jewelry"
                 className="w-10 h-10 object-contain"
               />
-              <div>
-                <h3 className="text-lg font-bold gold-accent">Aurora Jewelry</h3>
-                <p className="text-xs text-muted-foreground">Ювелирный дом</p>
-              </div>
             </button>
             <p className="text-muted-foreground mb-4">
               Создаем уникальные ювелирные изделия более 25 лет. 
