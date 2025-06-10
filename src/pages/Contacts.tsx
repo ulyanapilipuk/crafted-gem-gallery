@@ -22,12 +22,12 @@ const Contacts = () => {
               <CardContent className="space-y-4">
                 <div>
                   <h3 className="font-semibold mb-2">Главный офис и шоу-рум</h3>
-                  <p className="text-muted-foreground">г. Москва, ул. Тверская, д. 15, стр. 1</p>
-                  <p className="text-sm text-muted-foreground">м. Тверская, м. Пушкинская</p>
+                  <p className="text-muted-foreground">г. Минск, пр-т Независимости, д. 68</p>
+                  <p className="text-sm text-muted-foreground">м. Октябрьская, м. Купаловская</p>
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2">Производство</h3>
-                  <p className="text-muted-foreground">г. Москва, ул. Варшавское шоссе, д. 47</p>
+                  <p className="text-muted-foreground">г. Минск, ул. Промышленная, д. 25</p>
                 </div>
               </CardContent>
             </Card>
@@ -41,16 +41,16 @@ const Contacts = () => {
               </CardHeader>
               <CardContent className="space-y-2">
                 <div>
-                  <p className="font-semibold">+7 (495) 123-45-67</p>
+                  <p className="font-semibold">+375 (17) 234-56-78</p>
                   <p className="text-sm text-muted-foreground">Основной номер</p>
                 </div>
                 <div>
-                  <p className="font-semibold">+7 (495) 123-45-68</p>
-                  <p className="text-sm text-muted-foreground">Отдел продаж</p>
+                  <p className="font-semibold">+375 (29) 123-45-67</p>
+                  <p className="text-sm text-muted-foreground">Отдел продаж (МТС)</p>
                 </div>
                 <div>
-                  <p className="font-semibold">+7 (495) 123-45-69</p>
-                  <p className="text-sm text-muted-foreground">Индивидуальные заказы</p>
+                  <p className="font-semibold">+375 (25) 123-45-67</p>
+                  <p className="text-sm text-muted-foreground">Индивидуальные заказы (life:)</p>
                 </div>
               </CardContent>
             </Card>
@@ -64,15 +64,15 @@ const Contacts = () => {
               </CardHeader>
               <CardContent className="space-y-2">
                 <div>
-                  <p className="font-semibold">info@luxjewel.ru</p>
+                  <p className="font-semibold">info@aurora-jewelry.by</p>
                   <p className="text-sm text-muted-foreground">Общие вопросы</p>
                 </div>
                 <div>
-                  <p className="font-semibold">sales@luxjewel.ru</p>
+                  <p className="font-semibold">sales@aurora-jewelry.by</p>
                   <p className="text-sm text-muted-foreground">Продажи</p>
                 </div>
                 <div>
-                  <p className="font-semibold">support@luxjewel.ru</p>
+                  <p className="font-semibold">support@aurora-jewelry.by</p>
                   <p className="text-sm text-muted-foreground">Техническая поддержка</p>
                 </div>
               </CardContent>
@@ -116,12 +116,12 @@ const Contacts = () => {
                   <div className="text-center">
                     <MapPin className="h-12 w-12 text-gold mx-auto mb-2" />
                     <p className="text-muted-foreground">Интерактивная карта</p>
-                    <p className="text-sm text-muted-foreground">г. Москва, ул. Тверская, д. 15</p>
+                    <p className="text-sm text-muted-foreground">г. Минск, пр-т Независимости, д. 68</p>
                   </div>
                 </div>
                 <div className="space-y-2 text-sm">
-                  <p><strong>От метро Тверская:</strong> выход № 1, 2 минуты пешком</p>
-                  <p><strong>От метро Пушкинская:</strong> выход № 3, 5 минут пешком</p>
+                  <p><strong>От метро Октябрьская:</strong> выход № 1, 3 минуты пешком</p>
+                  <p><strong>От метро Купаловская:</strong> выход № 2, 5 минут пешком</p>
                   <p><strong>Парковка:</strong> подземная парковка в здании (2 часа бесплатно)</p>
                 </div>
               </CardContent>

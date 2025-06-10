@@ -39,27 +39,43 @@ const Header = () => {
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery) {
-      navigate(`/catalog?search=${encodeURIComponent(searchQuery)}`);
+    if (searchQuery.trim()) {
+      navigate(`/catalog?search=${encodeURIComponent(searchQuery.trim())}`);
       setSearchSuggestions([]);
       setIsSearchFocused(false);
+      setSearchQuery('');
     }
+  };
+
+  const handleSuggestionClick = (productId: string) => {
+    navigate(`/product/${productId}`);
+    setSearchSuggestions([]);
+    setIsSearchFocused(false);
+    setSearchQuery('');
+  };
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    // Прокрутка к началу страницы
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
   };
 
   return (
     <header className="bg-background border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-background/80">
       <div className="container mx-auto px-4">
-        {/* Верхняя строка - убрана */}
-        
         {/* Основной хедер */}
         <div className="flex items-center justify-between py-4">
           {/* Логотип */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">💎</span>
-            </div>
+          <Link to="/" className="flex items-center space-x-3" onClick={() => handleNavigation('/')}>
+            <img 
+              src="/lovable-uploads/eb9d886f-9194-4685-9771-c9d36a3f6dc6.png" 
+              alt="Aurora Jewelry"
+              className="w-12 h-12 object-contain"
+            />
             <div>
-              <h1 className="text-xl font-bold gold-accent">LuxJewel</h1>
+              <h1 className="text-xl font-bold gold-accent">Aurora Jewelry</h1>
               <p className="text-xs text-muted-foreground">Ювелирный дом</p>
             </div>
           </Link>
@@ -92,11 +108,10 @@ const Header = () => {
               {isSearchFocused && searchSuggestions.length > 0 && (
                 <div className="absolute top-full mt-1 w-full bg-background border border-border rounded-md shadow-lg z-50">
                   {searchSuggestions.map((product) => (
-                    <Link
+                    <div
                       key={product.id}
-                      to={`/product/${product.id}`}
-                      className="flex items-center space-x-3 p-3 hover:bg-accent transition-colors"
-                      onClick={() => setIsSearchFocused(false)}
+                      className="flex items-center space-x-3 p-3 hover:bg-accent transition-colors cursor-pointer"
+                      onClick={() => handleSuggestionClick(product.id)}
                     >
                       <img
                         src={product.image}
@@ -107,7 +122,7 @@ const Header = () => {
                         <p className="font-medium">{product.name}</p>
                         <p className="text-sm text-muted-foreground">{product.price.toLocaleString()} BYN</p>
                       </div>
-                    </Link>
+                    </div>
                   ))}
                 </div>
               )}
@@ -120,35 +135,35 @@ const Header = () => {
                   Каталог
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-background border border-border">
-                  <DropdownMenuItem asChild>
-                    <Link to="/catalog?category=Кольца">Кольца</Link>
+                  <DropdownMenuItem onClick={() => handleNavigation('/catalog?category=Кольца')}>
+                    Кольца
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/catalog?category=Серьги">Серьги</Link>
+                  <DropdownMenuItem onClick={() => handleNavigation('/catalog?category=Серьги')}>
+                    Серьги
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/catalog?category=Колье и подвески">Колье и подвески</Link>
+                  <DropdownMenuItem onClick={() => handleNavigation('/catalog?category=Колье и подвески')}>
+                    Колье и подвески
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/catalog?category=Браслеты">Браслеты</Link>
+                  <DropdownMenuItem onClick={() => handleNavigation('/catalog?category=Браслеты')}>
+                    Браслеты
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/catalog?category=Свадебные украшения">Свадебные украшения</Link>
+                  <DropdownMenuItem onClick={() => handleNavigation('/catalog?category=Свадебные украшения')}>
+                    Свадебные украшения
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/catalog">Все категории</Link>
+                  <DropdownMenuItem onClick={() => handleNavigation('/catalog')}>
+                    Все категории
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <Link to="/promotions" className="hover:text-gold transition-colors">
+              <button onClick={() => handleNavigation('/promotions')} className="hover:text-gold transition-colors">
                 Акции
-              </Link>
-              <Link to="/about" className="hover:text-gold transition-colors">
+              </button>
+              <button onClick={() => handleNavigation('/about')} className="hover:text-gold transition-colors">
                 О нас
-              </Link>
-              <Link to="/contacts" className="hover:text-gold transition-colors">
+              </button>
+              <button onClick={() => handleNavigation('/contacts')} className="hover:text-gold transition-colors">
                 Контакты
-              </Link>
+              </button>
             </nav>
           </div>
 
@@ -161,10 +176,16 @@ const Header = () => {
 
             {/* Избранное */}
             {user && (
-              <Button variant="ghost" size="sm" asChild>
-                <Link to="/profile#favorites">
-                  <Heart className="h-5 w-5" />
-                </Link>
+              <Button variant="ghost" size="sm" onClick={() => {
+                navigate('/profile');
+                setTimeout(() => {
+                  const favoritesSection = document.getElementById('favorites');
+                  if (favoritesSection) {
+                    favoritesSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 100);
+              }}>
+                <Heart className="h-5 w-5" />
               </Button>
             )}
 
@@ -178,8 +199,8 @@ const Header = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-background border border-border">
-                  <DropdownMenuItem asChild>
-                    <Link to="/profile">Личный кабинет</Link>
+                  <DropdownMenuItem onClick={() => handleNavigation('/profile')}>
+                    Личный кабинет
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={logout}>
                     Выйти
@@ -187,24 +208,20 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Button variant="ghost" size="sm" asChild>
-                <Link to="/auth">
-                  <User className="h-5 w-5" />
-                  <span className="hidden sm:inline ml-1">Войти</span>
-                </Link>
+              <Button variant="ghost" size="sm" onClick={() => handleNavigation('/auth')}>
+                <User className="h-5 w-5" />
+                <span className="hidden sm:inline ml-1">Войти</span>
               </Button>
             )}
 
             {/* Корзина */}
-            <Button variant="ghost" size="sm" className="relative" asChild>
-              <Link to="/cart">
-                <ShoppingCart className="h-5 w-5" />
-                {getTotalItems() > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-gold text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    {getTotalItems()}
-                  </span>
-                )}
-              </Link>
+            <Button variant="ghost" size="sm" className="relative" onClick={() => handleNavigation('/cart')}>
+              <ShoppingCart className="h-5 w-5" />
+              {getTotalItems() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-gold text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {getTotalItems()}
+                </span>
+              )}
             </Button>
 
             {/* Мобильное меню */}
@@ -215,17 +232,17 @@ const Header = () => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-background border border-border">
-                <DropdownMenuItem asChild>
-                  <Link to="/catalog">Каталог</Link>
+                <DropdownMenuItem onClick={() => handleNavigation('/catalog')}>
+                  Каталог
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/promotions">Акции</Link>
+                <DropdownMenuItem onClick={() => handleNavigation('/promotions')}>
+                  Акции
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/about">О нас</Link>
+                <DropdownMenuItem onClick={() => handleNavigation('/about')}>
+                  О нас
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/contacts">Контакты</Link>
+                <DropdownMenuItem onClick={() => handleNavigation('/contacts')}>
+                  Контакты
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

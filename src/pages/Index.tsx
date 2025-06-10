@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import PromotionSlider from '@/components/PromotionSlider';
 import ProductCard from '@/components/ProductCard';
@@ -9,6 +9,14 @@ import { products } from '@/data/products';
 const Index = () => {
   const featuredProducts = products.filter(p => p.isNew || p.isSale).slice(0, 4);
   const bestSellers = products.slice(0, 6);
+  const navigate = useNavigate();
+
+  const handleCatalogClick = () => {
+    navigate('/catalog');
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  };
 
   return (
     <div className="min-h-screen">
@@ -21,8 +29,8 @@ const Index = () => {
           <p className="text-xl md:text-2xl mb-8 opacity-90">
             Откройте для себя коллекцию изысканных украшений
           </p>
-          <Button asChild size="lg" className="bg-white text-gold hover:bg-gray-100">
-            <Link to="/catalog">Смотреть каталог</Link>
+          <Button onClick={handleCatalogClick} size="lg" className="bg-white text-gold hover:bg-gray-100">
+            Смотреть каталог
           </Button>
         </div>
         <div className="absolute inset-0 bg-black/20"></div>
@@ -41,8 +49,8 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold">Рекомендуемые товары</h2>
-            <Button variant="outline" asChild>
-              <Link to="/catalog">Смотреть все</Link>
+            <Button variant="outline" onClick={handleCatalogClick}>
+              Смотреть все
             </Button>
           </div>
           
@@ -59,8 +67,8 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold">Хиты продаж</h2>
-            <Button variant="outline" asChild>
-              <Link to="/catalog">Смотреть все</Link>
+            <Button variant="outline" onClick={handleCatalogClick}>
+              Смотреть все
             </Button>
           </div>
           
@@ -77,7 +85,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">О ювелирном доме LuxJewel</h2>
+              <h2 className="text-3xl font-bold mb-6">О ювелирном доме Aurora Jewelry</h2>
               <p className="text-lg mb-4 text-muted-foreground">
                 Более 25 лет мы создаем уникальные ювелирные изделия, которые становятся
                 семейными реликвиями и передаются из поколения в поколение.
