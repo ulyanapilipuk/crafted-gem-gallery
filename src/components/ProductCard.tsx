@@ -98,11 +98,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <span className="text-lg font-bold text-gold">
-              {product.price.toLocaleString()} ₽
+              {product.price.toLocaleString()} BYN
             </span>
             {product.originalPrice && (
               <span className="text-sm text-muted-foreground line-through">
-                {product.originalPrice.toLocaleString()} ₽
+                {product.originalPrice.toLocaleString()} BYN
               </span>
             )}
           </div>
@@ -115,3 +115,4 @@ const ProductCard = ({ product }: ProductCardProps) => {
 };
 
 export default ProductCard;
+

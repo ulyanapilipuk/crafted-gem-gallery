@@ -8,7 +8,7 @@ const About = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Заголовок */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">О ювелирном доме LuxJewel</h1>
+          <h1 className="text-4xl font-bold mb-4">О ювелирном доме Aurora Jewelry</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Более четверти века мы создаем украшения, которые становятся частью самых важных моментов в жизни наших клиентов
           </p>
@@ -21,11 +21,11 @@ const About = () => {
               <h2 className="text-3xl font-bold mb-6">Наша история</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Ювелирный дом LuxJewel был основан в 1998 году мастером-ювелиром Александром Петровым. 
-                  Начав с небольшой мастерской в центре Москвы, мы постепенно завоевали доверие тысяч клиентов.
+                  Ювелирный дом Aurora Jewelry был основан в 1998 году мастером-ювелиром Евгением Кузнецовым. 
+                  Начав с небольшой мастерской в центре Минска, мы постепенно завоевали доверие тысяч клиентов по всей Беларуси.
                 </p>
                 <p>
-                  Сегодня LuxJewel — это команда профессиональных ювелиров, дизайнеров и геммологов, 
+                  Сегодня Aurora Jewelry — это команда профессиональных ювелиров, дизайнеров и геммологов, 
                   которые создают уникальные украшения из драгоценных металлов и камней высшего качества.
                 </p>
                 <p>
@@ -81,7 +81,7 @@ const About = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Доверие</h3>
                 <p className="text-muted-foreground">
-                  За 25+ лет работы мы завоевали доверие тысяч клиентов. 
+                  За 25+ лет работы мы завоевали доверие тысяч клиентов по всей Беларуси. 
                   Предоставляем пожизненную гарантию на все изделия.
                 </p>
               </CardContent>
@@ -98,10 +98,10 @@ const About = () => {
                 <div className="w-24 h-24 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">👨‍💼</span>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Александр Петров</h3>
+                <h3 className="text-lg font-semibold mb-2">Евгений Кузнецов</h3>
                 <p className="text-gold font-medium mb-2">Основатель и главный ювелир</p>
                 <p className="text-sm text-muted-foreground">
-                  Мастер с 30-летним стажем, создатель уникальных коллекций
+                  Мастер с 30-летним стажем, создатель уникальных коллекций Aurora
                 </p>
               </CardContent>
             </Card>
@@ -111,10 +111,10 @@ const About = () => {
                 <div className="w-24 h-24 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">👩‍🎨</span>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Елена Смирнова</h3>
+                <h3 className="text-lg font-semibold mb-2">Анна Волкова</h3>
                 <p className="text-gold font-medium mb-2">Главный дизайнер</p>
                 <p className="text-sm text-muted-foreground">
-                  Создает современные дизайны, сочетающие классику и инновации
+                  Создает современные дизайны, сочетающие белорусские традиции и мировые тенденции
                 </p>
               </CardContent>
             </Card>
@@ -124,7 +124,7 @@ const About = () => {
                 <div className="w-24 h-24 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">👨‍🔬</span>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Михаил Иванов</h3>
+                <h3 className="text-lg font-semibold mb-2">Дмитрий Петров</h3>
                 <p className="text-gold font-medium mb-2">Геммолог</p>
                 <p className="text-sm text-muted-foreground">
                   Эксперт по драгоценным камням, отвечает за качество материалов
@@ -143,7 +143,7 @@ const About = () => {
                 <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-2">
                   <span className="text-xl">🏆</span>
                 </div>
-                <h4 className="font-semibold text-sm">Лучший ювелирный дом</h4>
+                <h4 className="font-semibold text-sm">Лучший ювелирный дом Беларуси</h4>
                 <p className="text-xs text-muted-foreground">Премия "Золотая корона" 2023</p>
               </CardContent>
             </Card>
@@ -154,7 +154,7 @@ const About = () => {
                   <span className="text-xl">📜</span>
                 </div>
                 <h4 className="font-semibold text-sm">Сертификат качества</h4>
-                <p className="text-xs text-muted-foreground">ISO 9001:2015</p>
+                <p className="text-xs text-muted-foreground">STB ISO 9001-2015</p>
               </CardContent>
             </Card>
 
@@ -173,8 +173,8 @@ const About = () => {
                 <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-2">
                   <span className="text-xl">✅</span>
                 </div>
-                <h4 className="font-semibold text-sm">Ассоциация ювелиров</h4>
-                <p className="text-xs text-muted-foreground">Член АЮР с 2005 года</p>
+                <h4 className="font-semibold text-sm">Ассоциация ювелиров Беларуси</h4>
+                <p className="text-xs text-muted-foreground">Член АЮБ с 2005 года</p>
               </CardContent>
             </Card>
           </div>
@@ -185,3 +185,4 @@ const About = () => {
 };
 
 export default About;
+

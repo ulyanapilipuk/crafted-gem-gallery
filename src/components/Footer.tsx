@@ -20,7 +20,8 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/eb9d886f-9194-4685-9771-c9d36a3f6dc6.png" 
                 alt="Aurora Jewelry"
-                className="h-10 w-auto object-contain"
+                className="h-14 w-auto object-contain"
+                style={{ maxWidth: '180px' }}
               />
             </button>
             <p className="text-muted-foreground mb-4">
@@ -79,3 +80,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

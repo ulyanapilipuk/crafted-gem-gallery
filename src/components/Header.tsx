@@ -74,8 +74,8 @@ const Header = () => {
             <img 
               src="/lovable-uploads/eb9d886f-9194-4685-9771-c9d36a3f6dc6.png" 
               alt="Aurora Jewelry"
-              className="h-[70px] w-auto object-contain"
-              style={{ maxWidth: '171.38px' }}
+              className="h-[90px] w-auto object-contain"
+              style={{ maxWidth: '220px' }}
             />
           </Link>
 
@@ -254,3 +254,4 @@ const Header = () => {
 };
 
 export default Header;
+
