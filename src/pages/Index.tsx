@@ -123,7 +123,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2">Быстрая доставка</h3>
               <p className="text-muted-foreground">
-                Доставка по всей России в течение 1-3 дней
+                Доставка по всей Беларуси в течение 1-3 дней
               </p>
             </div>
             

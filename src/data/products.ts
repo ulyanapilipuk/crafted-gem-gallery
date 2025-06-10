@@ -40,8 +40,8 @@ export const products: Product[] = [
   {
     id: '1',
     name: 'Кольцо с бриллиантом "Сияние"',
-    price: 125000,
-    originalPrice: 150000,
+    price: 3750,
+    originalPrice: 4500,
     image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400',
     category: 'Кольца',
     description: 'Элегантное кольцо из белого золота 750 пробы с центральным бриллиантом весом 0.5 карата. Классический дизайн подчеркивает красоту камня.',
@@ -55,7 +55,7 @@ export const products: Product[] = [
   {
     id: '2',
     name: 'Серьги с изумрудами "Весна"',
-    price: 89000,
+    price: 2670,
     image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400',
     category: 'Серьги',
     description: 'Изысканные серьги из желтого золота с натуральными изумрудами и бриллиантами. Идеальное украшение для особого случая.',
@@ -68,7 +68,7 @@ export const products: Product[] = [
   {
     id: '3',
     name: 'Колье "Лунная дорожка"',
-    price: 67000,
+    price: 2010,
     image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400',
     category: 'Колье и подвески',
     description: 'Нежное колье из белого золота с россыпью бриллиантов, создающих эффект лунной дорожки на воде.',
@@ -80,8 +80,8 @@ export const products: Product[] = [
   {
     id: '4',
     name: 'Браслет "Infinity"',
-    price: 45000,
-    originalPrice: 55000,
+    price: 1350,
+    originalPrice: 1650,
     image: 'https://images.unsplash.com/photo-1611955167811-4711904bb9f8?w=400',
     category: 'Браслеты',
     description: 'Стильный браслет с символом бесконечности, украшенный мелкими бриллиантами. Символ вечной любви.',
@@ -95,7 +95,7 @@ export const products: Product[] = [
   {
     id: '5',
     name: 'Обручальные кольца "Союз"',
-    price: 78000,
+    price: 2340,
     image: 'https://images.unsplash.com/photo-1594736797933-d0c6e6c3c543?w=400',
     category: 'Свадебные украшения',
     description: 'Классические обручальные кольца из желтого золота с матовой отделкой. Комплект из двух колец.',
@@ -107,7 +107,7 @@ export const products: Product[] = [
   {
     id: '6',
     name: 'Часы "Elegance"',
-    price: 156000,
+    price: 4680,
     image: 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400',
     category: 'Часы',
     description: 'Роскошные женские часы с корпусом из белого золота и браслетом, украшенным бриллиантами.',
@@ -119,7 +119,7 @@ export const products: Product[] = [
   {
     id: '7',
     name: 'Брошь "Бабочка"',
-    price: 34000,
+    price: 1020,
     image: 'https://images.unsplash.com/photo-1588444837495-c6dd99c4e4cb?w=400',
     category: 'Броши',
     description: 'Очаровательная брошь в виде бабочки из серебра с эмалью и цветными камнями.',
@@ -132,7 +132,7 @@ export const products: Product[] = [
   {
     id: '8',
     name: 'Детские серьги "Звездочки"',
-    price: 12000,
+    price: 360,
     image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400',
     category: 'Детские украшения',
     description: 'Милые детские серьги в форме звездочек из медицинского золота с безопасной застежкой.',
@@ -144,7 +144,7 @@ export const products: Product[] = [
   {
     id: '9',
     name: 'Кольцо с сапфиром "Королевское"',
-    price: 198000,
+    price: 5940,
     image: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400',
     category: 'Кольца',
     description: 'Роскошное кольцо с центральным сапфиром в окружении бриллиантов. Настоящее произведение ювелирного искусства.',
@@ -157,8 +157,8 @@ export const products: Product[] = [
   {
     id: '10',
     name: 'Серьги-капли "Росинка"',
-    price: 52000,
-    originalPrice: 65000,
+    price: 1560,
+    originalPrice: 1950,
     image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400',
     category: 'Серьги',
     description: 'Изящные серьги-капли из белого золота с голубыми топазами и россыпью бриллиантов.',

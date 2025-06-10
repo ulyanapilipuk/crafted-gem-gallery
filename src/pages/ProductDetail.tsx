@@ -165,11 +165,11 @@ const ProductDetail = () => {
             {/* Цена */}
             <div className="flex items-center space-x-3">
               <span className="text-3xl font-bold text-gold">
-                {product.price.toLocaleString()} ₽
+                {product.price.toLocaleString()} BYN
               </span>
               {product.originalPrice && (
                 <span className="text-xl text-muted-foreground line-through">
-                  {product.originalPrice.toLocaleString()} ₽
+                  {product.originalPrice.toLocaleString()} BYN
                 </span>
               )}
             </div>
@@ -237,7 +237,7 @@ const ProductDetail = () => {
                 <Truck className="h-6 w-6 text-gold" />
                 <div>
                   <p className="text-sm font-medium">Быстрая доставка</p>
-                  <p className="text-xs text-muted-foreground">1-3 дня по России</p>
+                  <p className="text-xs text-muted-foreground">1-3 дня по Беларуси</p>
                 </div>
               </div>
               

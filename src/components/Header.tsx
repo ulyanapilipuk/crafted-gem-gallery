@@ -49,20 +49,8 @@ const Header = () => {
   return (
     <header className="bg-background border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-background/80">
       <div className="container mx-auto px-4">
-        {/* Верхняя строка */}
-        <div className="flex items-center justify-between py-2 text-sm text-muted-foreground border-b border-border">
-          <div className="hidden md:flex items-center space-x-4">
-            <span>📞 +7 (495) 123-45-67</span>
-            <span>📧 info@jewelry-store.ru</span>
-          </div>
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" onClick={toggleTheme}>
-              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </Button>
-            <span>Доставка по всей России</span>
-          </div>
-        </div>
-
+        {/* Верхняя строка - убрана */}
+        
         {/* Основной хедер */}
         <div className="flex items-center justify-between py-4">
           {/* Логотип */}
@@ -76,59 +64,105 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Поиск */}
-          <div className="hidden md:flex flex-1 max-w-md mx-8 relative">
-            <form onSubmit={handleSearchSubmit} className="w-full relative">
-              <Input
-                type="text"
-                placeholder="Поиск украшений..."
-                value={searchQuery}
-                onChange={(e) => handleSearch(e.target.value)}
-                onFocus={() => setIsSearchFocused(true)}
-                onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
-                className="pr-10"
-              />
-              <Button
-                type="submit"
-                size="sm"
-                variant="ghost"
-                className="absolute right-1 top-1/2 -translate-y-1/2"
-              >
-                <Search className="h-4 w-4" />
-              </Button>
-            </form>
+          {/* Поиск и навигация в одной строке */}
+          <div className="flex items-center space-x-6 flex-1 max-w-4xl mx-8">
+            {/* Поиск */}
+            <div className="relative max-w-xs">
+              <form onSubmit={handleSearchSubmit} className="relative">
+                <Input
+                  type="text"
+                  placeholder="Поиск украшений..."
+                  value={searchQuery}
+                  onChange={(e) => handleSearch(e.target.value)}
+                  onFocus={() => setIsSearchFocused(true)}
+                  onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
+                  className="pr-10 rounded-full w-64"
+                />
+                <Button
+                  type="submit"
+                  size="sm"
+                  variant="ghost"
+                  className="absolute right-1 top-1/2 -translate-y-1/2"
+                >
+                  <Search className="h-4 w-4" />
+                </Button>
+              </form>
 
-            {/* Подсказки поиска */}
-            {isSearchFocused && searchSuggestions.length > 0 && (
-              <div className="absolute top-full mt-1 w-full bg-background border border-border rounded-md shadow-lg z-50">
-                {searchSuggestions.map((product) => (
-                  <Link
-                    key={product.id}
-                    to={`/product/${product.id}`}
-                    className="flex items-center space-x-3 p-3 hover:bg-accent transition-colors"
-                    onClick={() => setIsSearchFocused(false)}
-                  >
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-10 h-10 object-cover rounded"
-                    />
-                    <div>
-                      <p className="font-medium">{product.name}</p>
-                      <p className="text-sm text-muted-foreground">{product.price.toLocaleString()} ₽</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            )}
+              {/* Подсказки поиска */}
+              {isSearchFocused && searchSuggestions.length > 0 && (
+                <div className="absolute top-full mt-1 w-full bg-background border border-border rounded-md shadow-lg z-50">
+                  {searchSuggestions.map((product) => (
+                    <Link
+                      key={product.id}
+                      to={`/product/${product.id}`}
+                      className="flex items-center space-x-3 p-3 hover:bg-accent transition-colors"
+                      onClick={() => setIsSearchFocused(false)}
+                    >
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-10 h-10 object-cover rounded"
+                      />
+                      <div>
+                        <p className="font-medium">{product.name}</p>
+                        <p className="text-sm text-muted-foreground">{product.price.toLocaleString()} BYN</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Навигация в одной строке */}
+            <nav className="hidden lg:flex items-center space-x-6">
+              <DropdownMenu>
+                <DropdownMenuTrigger className="hover:text-gold transition-colors">
+                  Каталог
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-background border border-border">
+                  <DropdownMenuItem asChild>
+                    <Link to="/catalog?category=Кольца">Кольца</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/catalog?category=Серьги">Серьги</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/catalog?category=Колье и подвески">Колье и подвески</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/catalog?category=Браслеты">Браслеты</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/catalog?category=Свадебные украшения">Свадебные украшения</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/catalog">Все категории</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <Link to="/promotions" className="hover:text-gold transition-colors">
+                Акции
+              </Link>
+              <Link to="/about" className="hover:text-gold transition-colors">
+                О нас
+              </Link>
+              <Link to="/contacts" className="hover:text-gold transition-colors">
+                Контакты
+              </Link>
+            </nav>
           </div>
 
           {/* Действия пользователя */}
           <div className="flex items-center space-x-2">
+            {/* Переключатель темы */}
+            <Button variant="ghost" size="sm" onClick={toggleTheme}>
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </Button>
+
             {/* Избранное */}
             {user && (
               <Button variant="ghost" size="sm" asChild>
-                <Link to="/profile">
+                <Link to="/profile#favorites">
                   <Heart className="h-5 w-5" />
                 </Link>
               </Button>
@@ -176,14 +210,11 @@ const Header = () => {
             {/* Мобильное меню */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="md:hidden">
+                <Button variant="ghost" size="sm" className="lg:hidden">
                   <Menu className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-background border border-border">
-                <DropdownMenuItem asChild>
-                  <Link to="/">Главная</Link>
-                </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link to="/catalog">Каталог</Link>
                 </DropdownMenuItem>
@@ -193,51 +224,13 @@ const Header = () => {
                 <DropdownMenuItem asChild>
                   <Link to="/about">О нас</Link>
                 </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/contacts">Контакты</Link>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
         </div>
-
-        {/* Навигация */}
-        <nav className="hidden md:flex items-center justify-center space-x-8 py-3 border-t border-border">
-          <Link to="/" className="hover:text-gold transition-colors">
-            Главная
-          </Link>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="hover:text-gold transition-colors">
-              Каталог
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-background border border-border">
-              <DropdownMenuItem asChild>
-                <Link to="/catalog?category=Кольца">Кольца</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/catalog?category=Серьги">Серьги</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/catalog?category=Колье и подвески">Колье и подвески</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/catalog?category=Браслеты">Браслеты</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/catalog?category=Свадебные украшения">Свадебные украшения</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/catalog">Все категории</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <Link to="/promotions" className="hover:text-gold transition-colors">
-            Акции
-          </Link>
-          <Link to="/about" className="hover:text-gold transition-colors">
-            О нас
-          </Link>
-          <Link to="/contacts" className="hover:text-gold transition-colors">
-            Контакты
-          </Link>
-        </nav>
       </div>
     </header>
   );
