@@ -67,17 +67,21 @@ const Header = () => {
   return (
     <header className="bg-background border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-background/80">
       <div className="container mx-auto px-4">
-        {/* Основной хедер */}
-        <div className="flex items-center justify-between py-4">
-          {/* Логотип */}
-          <Link to="/" className="flex items-center" onClick={() => handleNavigation('/')}>
-            <img 
-              src="/lovable-uploads/eb9d886f-9194-4685-9771-c9d36a3f6dc6.png" 
-              alt="Aurora Jewelry"
-              className="h-[90px] w-auto object-contain"
-              style={{ maxWidth: '220px' }}
-            />
-          </Link>
+        {/* Основной хедер с фиксированной высотой */}
+        <div className="flex items-center justify-between py-4 h-20">
+          {/* Логотип с абсолютным позиционированием */}
+          <div className="relative flex items-center">
+            <Link to="/" className="flex items-center" onClick={() => handleNavigation('/')}>
+              <img 
+                src="/lovable-uploads/eb9d886f-9194-4685-9771-c9d36a3f6dc6.png" 
+                alt="Aurora Jewelry"
+                className="h-[120px] w-auto object-contain absolute top-1/2 left-0 transform -translate-y-1/2 z-10"
+                style={{ maxWidth: '220px' }}
+              />
+              {/* Невидимый placeholder для сохранения пространства */}
+              <div className="w-[220px] h-12"></div>
+            </Link>
+          </div>
 
           {/* Поиск и навигация в одной строке */}
           <div className="flex items-center space-x-6 flex-1 max-w-4xl mx-8">
@@ -254,4 +258,3 @@ const Header = () => {
 };
 
 export default Header;
-
